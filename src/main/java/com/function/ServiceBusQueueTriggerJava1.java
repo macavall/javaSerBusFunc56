@@ -1,6 +1,7 @@
 package com.function;
 
 import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.management.scheduler.ServiceBusQueueMessage;
 import com.microsoft.azure.functions.*;
 
 /**
@@ -12,10 +13,10 @@ public class ServiceBusQueueTriggerJava1 {
      */
     @FunctionName("ServiceBusQueueTriggerJava1")
     public void run(
-            @ServiceBusQueueTrigger(name = "message", queueName = "queue", connection = "serbus56hub_SERVICEBUS") String message,
+            @ServiceBusQueueTrigger(name = "message", queueName = "queue", connection = "serbus56hub_SERVICEBUS") ServiceBusQueueMessage message,
             final ExecutionContext context
     ) {
         context.getLogger().info("Java Service Bus Queue trigger function executed.");
-        context.getLogger().info(message);
+        //context.getLogger().info(message);
     }
 }
